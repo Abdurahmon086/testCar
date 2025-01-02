@@ -11,10 +11,21 @@ export default {
     "{srcDir}/app.config.{js,ts,mjs}",
     "{srcDir}/app/spa-loading-template.html"],
   theme: {
-    extend: {
-      container: {
-        center: true,
+    container: {
+      screens: {
+        sm: '100%',
+        md: '100%',
+        lg: '1024px',
+        xl: '1296px',
       },
+      padding: {
+        DEFAULT: '0',
+        sm: '20px',
+      },
+      center: true,
+    },
+
+    extend: {
       colors: {
         primary: '#000000',
         secondary: '#2684E5',
