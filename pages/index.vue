@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { aboutUs } from "~/constants";
+
 const { data } = await useAsyncData(
     "home",
     async () => {
@@ -35,8 +37,8 @@ const { data } = await useAsyncData(
         <div class="container">
             <h3 class="main-title">Почему мы?</h3>
             <ul class="grid grid-cols-4 gap-6">
-                <li v-for="(item, i) in 4" :key="i">
-                    <CardsAboute />
+                <li v-for="item in aboutUs" :key="item?.id">
+                    <CardsAboute :data="item" />
                 </li>
             </ul>
         </div>
@@ -54,7 +56,7 @@ const { data } = await useAsyncData(
                         наших клиентов, учитывая их потребности и бюджет. Мы работаем только с надежными поставщиками и
                         перевозчиками, чтобы обеспечить безопасность и надежность доставки.
                     </p>
-                    <ShareButton class="bg-secondary">Связаться с нами</ShareButton>
+                    <ShareButton>Связаться с нами</ShareButton>
                 </div>
             </div>
         </div>
@@ -77,10 +79,10 @@ const { data } = await useAsyncData(
             <div class="rounded-xl bg-gradient-to-r from-[#3593F3] to-[#0C74DF] text-white">
                 <div class="bg-[url('/images/bg1.png')] bg-no-repeat bg-right pt-5 pb-8 px-10">
                     <h4 class="text-[28px] leading-8 font-medium">Не можете определится с выбором?</h4>
-                    <p class="text-[15px] leading-5 max-w-[383px] mt-1 mb-3">
+                    <p class="text-[15px] leading-5 max-w-[383px] mt-1 mb-4">
                         Оставьте заявку, и наши менеджеры проконсультируют вас!
                     </p>
-                    <ShareButton>Оставить заявку</ShareButton>
+                    <ShareButton color="bg-[#71B2F7]">Оставить заявку</ShareButton>
                 </div>
             </div>
         </div>

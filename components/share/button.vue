@@ -1,13 +1,15 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const { color } = defineProps<{ color?: string }>();
+console.log(color);
+</script>
 <template>
-    <button class="main-btn">
+    <button class="main-btn" :class="color ? color : 'bg-secondary'">
         <slot />
     </button>
 </template>
 
 <style scoped>
 .main-btn {
-    background-color: #71b2f7;
     padding: 21px 38px;
     font-size: 14px;
     line-height: 16.1px;
