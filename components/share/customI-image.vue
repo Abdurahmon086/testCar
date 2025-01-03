@@ -4,6 +4,6 @@ const { src, alt, style } = defineProps<{ src: string; alt?: string; style?: str
 
 <template>
     <div class="relative w-full h-full">
-        <img :src="src" :alt="alt" :class="style ? style : `object-fill object-center w-full h-full`" />
+        <img :src="src" :alt="alt" :class="style ? style : `object-cover w-full h-full`" />
     </div>
 </template>

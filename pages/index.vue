@@ -2,8 +2,12 @@
 const { data } = await useAsyncData(
     "home",
     async () => {
-        const [cars, brands] = await Promise.all([$fetch("/api/cars"), $fetch("/api/brands")]);
-        return { cars, brands };
+        const [cars, brands, news] = await Promise.all([
+            $fetch("/api/cars"),
+            $fetch("/api/brands"),
+            $fetch("/api/news"),
+        ]);
+        return { cars, brands, news };
     },
     {
         deep: true,
@@ -87,8 +91,8 @@ const { data } = await useAsyncData(
         <div class="container">
             <h3 class="main-title">Новости</h3>
             <ul class="grid grid-cols-3 gap-6">
-                <li v-for="(item, i) in 3" :key="i">
-                    <CardsNew />
+                <li v-for="item in data?.news?.slice(0, 3)" :key="item?.id">
+                    <CardsNew :data="item" />
                 </li>
             </ul>
         </div>

@@ -5,6 +5,7 @@ const { data } = defineProps<{ data: CarBrand }>();
 </script>
 <template>
     <article
+        v-if="data"
         class="w-[216px] h-[168px] border flex-center flex-col justify-center hover:shadow-lg cursor-pointer transition-all duration-500"
     >
         <div class="relative w-8/12 h-auto">

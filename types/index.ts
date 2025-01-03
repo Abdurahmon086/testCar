@@ -33,3 +33,15 @@ export interface CarBrand {
     createdAt: string;
     updatedAt: string;
 }
+
+export interface New {
+    id: number;
+    title: string;
+    content: string;
+    vehicle: boolean;
+    author: string;
+    image: string;
+    created_at: string;
+    updated_at: string;
+}
+

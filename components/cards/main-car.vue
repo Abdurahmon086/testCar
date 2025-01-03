@@ -4,7 +4,7 @@ import type { Car } from "~/types";
 const { data } = defineProps<{ data: Car }>();
 </script>
 <template>
-    <article class="bg-white rounded-t-2xl rounded-b-xl shadow-lg w-[415px]">
+    <article v-if="data" class="bg-white rounded-t-2xl rounded-b-xl shadow-lg w-[415px]">
         <div class="relative w-full h-[280px] rounded-2xl overflow-hidden">
             <ShareCustomIImage :src="data?.image[0]" />
         </div>
