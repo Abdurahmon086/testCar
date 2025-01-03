@@ -1,24 +1,73 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const { data } = await useAsyncData(
+    "home",
+    async () => {
+        const [cars, brands] = await Promise.all([$fetch("/api/cars"), $fetch("/api/brands")]);
+        return { cars, brands };
+    },
+    {
+        deep: true,
+    }
+);
+</script>
 <template>
-    <div class="container mx-auto">
-        <div class="w-full h-full">
+    <section class="mt-24">
+        <div class="container">
+            <h3 class="main-title">АВТОМОБИЛЬНЫЙ КАТАЛОГ</h3>
             <ul class="grid grid-cols-3 gap-6">
-                <li v-for="(item, i) in 6" :key="i">
-                    <CardsMainCar />
+                <li v-for="item in data?.cars?.slice(0, 6)" :key="item?.id">
+                    <CardsMainCar :data="item" />
                 </li>
             </ul>
-            <ul class="grid grid-cols-4 gap-6 my-10">
+            <NuxtLink to="/" class="flex-center mt-4 justify-end">
+                <p class="border-b border-grayer text-sm leading-[18px]">Перейти в каталог</p>
+                <Icon name="uil:arrow-right" class="ml-1 text-xl" />
+            </NuxtLink>
+        </div>
+    </section>
+
+    <!-- Почему мы? section -->
+    <section class="mt-24">
+        <div class="container">
+            <h3 class="main-title">Почему мы?</h3>
+            <ul class="grid grid-cols-4 gap-6">
                 <li v-for="(item, i) in 4" :key="i">
                     <CardsAboute />
                 </li>
             </ul>
+        </div>
+    </section>
+
+    <!-- О нашей компании section -->
+    <section class="mt-28">
+        <div class="container">
+            <div class="bg-[#F6F6F6] rounded-lg">
+                <div class=""></div>
+                <div class="">
+                    <h3>О нашей компании</h3>
+                    <p>
+                        Мы имеем огромный опыт работы с автомобильным рынком Кореи и тщательно отбираем автомобили для
+                        наших клиентов, учитывая их потребности и бюджет. Мы работаем только с надежными поставщиками и
+                        перевозчиками, чтобы обеспечить безопасность и надежность доставки.
+                    </p>
+                    <ShareButton class="bg-secondary">Связаться с нами</ShareButton>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands section-->
+    <section class="mt-24">
+        <div class="container">
             <ul class="grid grid-cols-6 my-10">
-                <li v-for="(item, i) in 17" :key="i">
-                    <CardsBrand />
+                <li v-for="item in data?.brands" :key="item?.id">
+                    <CardsBrand :data="item" />
                 </li>
             </ul>
         </div>
-    </div>
+    </section>
+
+    <!-- выбором section-->
     <section class="mt-12">
         <div class="container">
             <div class="rounded-xl bg-gradient-to-r from-[#3593F3] to-[#0C74DF] text-white">
@@ -32,6 +81,8 @@
             </div>
         </div>
     </section>
+
+    <!-- Новости section-->
     <section class="mt-24">
         <div class="container">
             <h3 class="main-title">Новости</h3>
@@ -42,6 +93,8 @@
             </ul>
         </div>
     </section>
+
+    <!-- Отзывы section-->
     <section class="my-24">
         <div class="container">
             <h3 class="main-title">Отзывы</h3>

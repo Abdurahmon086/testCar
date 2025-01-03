@@ -5,6 +5,11 @@ export default defineNuxtConfig({
     ssr: true,
     modules: ["@nuxtjs/tailwindcss", "@nuxt/icon"],
     css: ["~/assets/css/main.css"],
+    runtimeConfig: {
+        public: {
+            API_BASE_URL: process.env.API_BASE_URL || "https://api.youcarrf.ru",
+        },
+    },
     tailwindcss: {
         cssPath: ["~/assets/css/tailwind.css", { injectPosition: "first" }],
         configPath: "tailwind.config.js",
