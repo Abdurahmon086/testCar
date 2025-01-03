@@ -17,6 +17,16 @@
                     <CardsBrand />
                 </li>
             </ul>
+            <ul class="grid grid-cols-3 gap-6 my-10">
+                <li v-for="(item, i) in 3" :key="i">
+                    <CardsNew />
+                </li>
+            </ul>
+            <ul class="grid grid-cols-3 gap-6 my-10">
+                <li v-for="(item, i) in 3" :key="i">
+                    <CardsReview />
+                </li>
+            </ul>
         </div>
     </div>
 </template>

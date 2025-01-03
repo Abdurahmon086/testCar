@@ -1,6 +1,6 @@
 <script lang="ts" setup></script>
 <template>
-    <div class="bg-[#F1F1F1] w-full min-h-screen flex flex-col">
+    <div class="bg-[#D1D1D11A] w-full min-h-screen flex flex-col">
         <header>
             <LayoutsHeaderTop />
             <div class="bg-white">
