@@ -26,5 +26,13 @@
     font-weight: 700;
     line-height: 24px;
     color: #293843;
-    
 }
+
+.main-title {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 36.36px;
+    color: #010101;
+    margin-bottom: 30px;
+}
+
