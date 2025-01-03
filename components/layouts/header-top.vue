@@ -49,7 +49,7 @@ const socialData = [
 ];
 </script>
 <template>
-    <div class="container mx-auto py-4 flex-center">
+    <div class="container bg-[#F6F6F6] py-4 flex-center">
         <nav class="">
             <ul class="flex-center gap-10 ">
                 <li v-for="item in data" :key="item.id" ">
