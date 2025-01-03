@@ -1,6 +1,6 @@
 <script lang="ts" setup></script>
 <template>
-    <div class="container  py-[12px] flex items-center">
+    <div class="container py-[12px] flex items-center">
         <ShareLogo />
         <nav class="ml-[29px]">
             <ul class="flex gap-5">

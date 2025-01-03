@@ -3,13 +3,28 @@
 }
 
 .text15 {
-    size: 15px;
+    font-size: 15px;
     line-height: 17.25px;
     font-weight: 400;
 }
 
 .text19 {
-    size: 19px;
+    font-size: 19px;
     line-height: 20px;
     font-weight: 500;
+}
+
+.text15-foo {
+    font-size: 15px;
+    font-weight: 500;
+    color: #5a5a5a;
+    line-height: 16.9px;
+}
+
+.text17-foo {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 24px;
+    color: #293843;
+    
 }

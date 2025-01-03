@@ -3,7 +3,7 @@
     <div class="bg-[#D1D1D11A] w-full min-h-screen flex flex-col">
         <header>
             <LayoutsHeaderTop />
-            <div class="bg-white">
+            <div class="bg-white shadow-lg">
                 <LayoutsHeader />
             </div>
         </header>
