@@ -15,14 +15,14 @@
 }
 
 .text15-foo {
-    font-size: 15px;
+    @apply text-[13px] md:text-[15px];
     font-weight: 500;
     color: #5a5a5a;
     line-height: 16.9px;
 }
 
 .text17-foo {
-    font-size: 17px;
+    @apply text-[15px] md:text-[17px];
     font-weight: 700;
     line-height: 24px;
     color: #293843;

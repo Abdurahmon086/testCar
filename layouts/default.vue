@@ -10,9 +10,9 @@
         <!-- <main class="flex-grow">
             <slot />
         </main> -->
-        <!-- <footer>
+        <footer>
             <LayoutsFooter />
-        </footer> -->
+        </footer>
     </div>
 </template>
 
