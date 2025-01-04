@@ -1,16 +1,29 @@
 <script lang="ts" setup>
+import type { CarBrand } from "~/types";
+
 interface Option {
     id: number;
     name: string;
     value: string;
 }
 
+const { data } = await useAsyncData(
+    "filer-avto",
+    async () => {
+        const [brands] = await Promise.all([$fetch<CarBrand[]>("/api/brands")]);
+        return { brands };
+    },
+    {
+        deep: true,
+    }
+);
+
 const year = ref("");
 const price = ref("");
-const selected = ref("new");
+const selected = ref("all");
 const order = ref(false);
 const cash = ref(false);
-const mark = ref("");
+const mark = ref(data.value?.brands[0].mark_name ?? "");
 const model = ref("");
 const country = ref("");
 const result = ref<any>(null);
@@ -74,6 +87,7 @@ const submitForm = async () => {
         body: formData,
     });
     result.value = data;
+    console.log(result.value);
 };
 </script>
 <template>
@@ -106,10 +120,9 @@ const submitForm = async () => {
                 <div class="flex flex-col gap-1">
                     <label for="mark" class="label14 mb-1">Выберите марку</label>
                     <select name="mark" id="mark" class="for-form-avto py-6 px-5 text15 text-[#5A5A5A]" v-model="mark">
-                        <option value="Hyundai">Hyundai</option>
-                        <option value="Kia">Kia</option>
-                        <option value="Chevrolet">Chevrolet</option>
-                        <option value="Ford">Ford</option>
+                        <option v-for="item in data?.brands ?? []" :key="item?.id" :value="item?.mark_name">
+                            {{ item?.mark_name }}
+                        </option>
                     </select>
                 </div>
                 <div class="flex flex-col gap-1">
@@ -168,7 +181,10 @@ const submitForm = async () => {
                     Сбросить
                     <Icon name="uil:times" class="text-grayer" />
                 </button>
-                <ShareButton>{{ result?.count }} Предложений</ShareButton>
+                <ShareButton>
+                    <p>{{ result?.length }}</p>
+                    Предложений</ShareButton
+                >
             </div>
         </form>
     </div>
