@@ -24,8 +24,8 @@ const selected = ref("all");
 const order = ref(false);
 const cash = ref(false);
 const mark = ref(data.value?.brands[0].mark_name ?? "");
-const model = ref("");
-const country = ref("");
+const model = ref("Hyundai");
+const country = ref("USA");
 const result = ref<any>(null);
 
 // Handle selection
@@ -116,8 +116,8 @@ const submitForm = async () => {
                 </div>
             </div>
 
-            <div class="grid grid-cols-5 space-x-6 mt-7">
-                <div class="flex flex-col gap-1">
+            <div class="grid grid-cols-5 space-x-6 mt-7 ">
+                <div class="flex flex-col gap-1 custom-select relative">
                     <label for="mark" class="label14 mb-1">Выберите марку</label>
                     <select name="mark" id="mark" class="for-form-avto py-6 px-5 text15 text-[#5A5A5A]" v-model="mark">
                         <option v-for="item in data?.brands ?? []" :key="item?.id" :value="item?.mark_name">
@@ -125,7 +125,7 @@ const submitForm = async () => {
                         </option>
                     </select>
                 </div>
-                <div class="flex flex-col gap-1">
+                <div class="flex flex-col gap-1 custom-select relative">
                     <label for="model" class="label14 mb-1">ВЫберите модель</label>
                     <select
                         name="model"
@@ -139,7 +139,7 @@ const submitForm = async () => {
                         <option value="Ford">Ford</option>
                     </select>
                 </div>
-                <div class="flex flex-col gap-1">
+                <div class="flex flex-col gap-1 custom-select relative">
                     <label for="country" class="label14 mb-1">Страна</label>
                     <select
                         name="country"
@@ -147,10 +147,10 @@ const submitForm = async () => {
                         class="for-form-avto py-6 px-5 text15 text-[#5A5A5A]"
                         v-model="country"
                     >
-                        <option value="Hyundai">Hyundai</option>
-                        <option value="Kia">Kia</option>
-                        <option value="Chevrolet">Chevrolet</option>
-                        <option value="Ford">Ford</option>
+                        <option value="USA">USA</option>
+                        <option value="Russian">Russian</option>
+                        <option value="China">China</option>
+                        <option value="Korea">Korea</option>
                     </select>
                 </div>
                 <div class="flex flex-col gap-1">

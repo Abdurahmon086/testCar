@@ -52,3 +52,24 @@
 .active {
     @apply transition-colors duration-500 bg-grayer text-white rounded-xl;
 }
+
+.custom-select select {
+    appearance: none;
+
+    cursor: pointer;
+}
+
+.custom-select::after {
+    --size: 0.4rem;
+    position: absolute;
+    content: "";
+    right: 1rem;
+    pointer-events: none;
+}
+
+.custom-select::after {
+    border-left: var(--size) solid transparent;
+    border-right: var(--size) solid transparent;
+    border-top: var(--size) solid black;
+    top: 62%;
+}
