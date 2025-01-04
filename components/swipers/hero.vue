@@ -37,7 +37,8 @@ onMounted(() => {
     <div v-if="loading" class="container bg-[#F4F4F4] w-full h-[409px]"></div>
     <div v-else-if="data && loading == false" class="container relative">
         <ClientOnly>
-            <swiper-container ref="containerRef">
+            <swiper-container ref
+            ="containerRef">
                 <swiper-slide
                     v-for="item in data"
                     :key="item?.id"

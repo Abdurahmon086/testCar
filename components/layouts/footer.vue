@@ -1,102 +1,5 @@
 <script lang="ts" setup>
-const socialData = [
-    {
-        id: 1,
-        name: "Vkontakte",
-        icon_name: "akar-icons:vk-fill",
-        link: "https://vk.com",
-    },
-    {
-        id: 2,
-        name: "Whatsapp",
-        icon_name: "uil:whatsapp",
-        link: "https://whatsapp.com",
-    },
-    {
-        id: 3,
-        name: "Instagram",
-        icon_name: "uil:instagram",
-        link: "https://instagram.com",
-    },
-];
-const data = [
-    {
-        id: 1,
-        name: "Каталог",
-        link: "/catalog",
-    },
-    {
-        id: 2,
-        name: "О нас",
-        link: "/about",
-    },
-    {
-        id: 3,
-        name: "Новости",
-        link: "/news",
-    },
-    {
-        id: 4,
-        name: "Контакты",
-        link: "/contacts",
-    },
-    {
-        id: 5,
-        name: "Избранные",
-        link: "/chosen",
-    },
-];
-
-const avto = [
-    {
-        id: 1,
-        name: "Из Европы",
-    },
-    {
-        id: 2,
-        name: "Из США",
-    },
-    {
-        id: 3,
-        name: "Из ОАЭ",
-    },
-    {
-        id: 4,
-        name: "Из Китая",
-    },
-    {
-        id: 5,
-        name: "Из Кореи",
-    },
-];
-
-const carBrands = [
-    { id: 1, name: "Audi" },
-    { id: 2, name: "BMW" },
-    { id: 3, name: "Chery" },
-    { id: 4, name: "Daewoo" },
-    { id: 5, name: "Fiat" },
-    { id: 6, name: "Aston Martin" },
-    { id: 7, name: "Baic" },
-    { id: 8, name: "Cadillac" },
-    { id: 9, name: "Datsun" },
-    { id: 10, name: "Ford" },
-    { id: 11, name: "Acura" },
-    { id: 12, name: "Byd" },
-    { id: 13, name: "Changan" },
-    { id: 14, name: "Dodge" },
-    { id: 15, name: "GAC" },
-    { id: 16, name: "Alfa Romeo" },
-    { id: 17, name: "Bentley" },
-    { id: 18, name: "Chevrolet" },
-    { id: 19, name: "EXEED" },
-    { id: 20, name: "Geely" },
-    { id: 21, name: "Avatr" },
-    { id: 22, name: "Chery" },
-    { id: 23, name: "Citroen" },
-    { id: 24, name: "Ferrari" },
-    { id: 25, name: "Genesis" },
-];
+import { carBrands, footer_countries, footer_menus_data, socialData } from "~/constants";
 </script>
 <template>
     <div class="container border-t border-[#DADADA] pt-8 pb-3">
@@ -119,7 +22,7 @@ const carBrands = [
                 <div class="w-[103px]">
                     <h4 class="text17-foo">Компания</h4>
                     <ul class="mt-4 flex flex-col text15-foo gap-x-5 gap-y-4">
-                        <li v-for="item in data">
+                        <li v-for="item in footer_menus_data">
                             {{ item.name }}
                         </li>
                     </ul>
@@ -127,7 +30,7 @@ const carBrands = [
                 <div class="">
                     <h4 class="text17-foo">Aвтомобили</h4>
                     <ul class="mt-4 flex flex-col text15-foo gap-x-5 gap-y-4">
-                        <li v-for="item in avto">
+                        <li v-for="item in footer_countries">
                             {{ item.name }}
                         </li>
                     </ul>

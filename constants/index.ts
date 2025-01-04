@@ -75,3 +75,83 @@ export const socialData = [
         link: "https://instagram.com",
     },
 ];
+
+export const footer_menus_data = [
+    {
+        id: 1,
+        name: "Каталог",
+        link: "/catalog",
+    },
+    {
+        id: 2,
+        name: "О нас",
+        link: "/about",
+    },
+    {
+        id: 3,
+        name: "Новости",
+        link: "/news",
+    },
+    {
+        id: 4,
+        name: "Контакты",
+        link: "/contacts",
+    },
+    {
+        id: 5,
+        name: "Избранные",
+        link: "/chosen",
+    },
+];
+
+
+export const footer_countries = [
+    {
+        id: 1,
+        name: "Из Европы",
+    },
+    {
+        id: 2,
+        name: "Из США",
+    },
+    {
+        id: 3,
+        name: "Из ОАЭ",
+    },
+    {
+        id: 4,
+        name: "Из Китая",
+    },
+    {
+        id: 5,
+        name: "Из Кореи",
+    },
+];
+
+export const carBrands = [
+    { id: 1, name: "Audi" },
+    { id: 2, name: "BMW" },
+    { id: 3, name: "Chery" },
+    { id: 4, name: "Daewoo" },
+    { id: 5, name: "Fiat" },
+    { id: 6, name: "Aston Martin" },
+    { id: 7, name: "Baic" },
+    { id: 8, name: "Cadillac" },
+    { id: 9, name: "Datsun" },
+    { id: 10, name: "Ford" },
+    { id: 11, name: "Acura" },
+    { id: 12, name: "Byd" },
+    { id: 13, name: "Changan" },
+    { id: 14, name: "Dodge" },
+    { id: 15, name: "GAC" },
+    { id: 16, name: "Alfa Romeo" },
+    { id: 17, name: "Bentley" },
+    { id: 18, name: "Chevrolet" },
+    { id: 19, name: "EXEED" },
+    { id: 20, name: "Geely" },
+    { id: 21, name: "Avatr" },
+    { id: 22, name: "Chery" },
+    { id: 23, name: "Citroen" },
+    { id: 24, name: "Ferrari" },
+    { id: 25, name: "Genesis" },
+];
