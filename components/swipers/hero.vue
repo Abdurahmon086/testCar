@@ -34,25 +34,20 @@ onMounted(() => {
 </script>
 
 <template>
-    <div v-if="loading" class="container bg-[#F4F4F4] w-full h-[409px]"></div>
+    <div v-if="loading" class="container bg-[#F4F4F4] w-full h-[574px] md:h-[409px]"></div>
     <div v-else-if="data && loading == false" class="container relative">
         <ClientOnly>
-            <swiper-container ref
-            ="containerRef">
+            <swiper-container ref="containerRef">
                 <swiper-slide
                     v-for="item in data"
                     :key="item?.id"
-                    class="bg-[#F4F4F4] pt-14 px-10 h-[409px] rounded-xl bg-no-repeat bg-right"
+                    class="bg-[#F4F4F4] pt-6 md:pt-14 px-4 md:px-10 h-[574px] md:h-[409px] rounded-xl bg-no-repeat bg-[length:auto_275px] md:bg-[length:770px_384px] bg-[left_bottom_5rem] md:bg-right"
                     :class="`bg-[url('/images/hero.png')]`"
-                    :style="{
-                        backgroundSize: '770px',
-                        backgroundPosition: 'calc(100% - 10px) center',
-                    }"
                 >
                     <div>
-                        <h2 class="text-4xl font-medium uppercase">{{ item?.model }}</h2>
-                        <p class="max-w-[442px] mt-2 mb-6 text-[#5A5A5A] line-clamp-2">{{ item?.description }}</p>
-                        <ShareButton color="bg-secondary !py-[25px] !px-[68px] text15">Подробнее</ShareButton>
+                        <h2 class="text-2xl md:text-4xl font-medium uppercase">{{ item?.model }}</h2>
+                        <p class="text-sm md:text-base max-w-[442px] mt-2 mb-4 md:mb-6 text-[#5A5A5A] line-clamp-3">{{ item?.description }}</p>
+                        <ShareButton color="bg-secondary !py-[25px] !px-[68px] text15 !w-full md:!w-fit">Подробнее</ShareButton>
                     </div>
                 </swiper-slide>
             </swiper-container>
