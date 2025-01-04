@@ -1,58 +1,13 @@
 <script lang="ts" setup>
-const data = [
-    {
-        id: 1,
-        name: "Главная",
-        link: "/",
-    },
-    {
-        id: 2,
-        name: "Каталог",
-        link: "/catalog",
-    },
-    {
-        id: 3,
-        name: "О нас",
-        link: "/about",
-    },
-    {
-        id: 4,
-        name: "Новости",
-        link: "/news",
-    },
-    {
-        id: 5,
-        name: "Контакты",
-        link: "/contacts",
-    },
-];
+import { header_top_data, socialData } from '~/constants';
 
-const socialData = [
-    {
-        id: 1,
-        name: "Vkontakte",
-        icon_name: "akar-icons:vk-fill",
-        link: "https://vk.com",
-    },
-    {
-        id: 2,
-        name: "Whatsapp",
-        icon_name: "uil:whatsapp",
-        link: "https://whatsapp.com",
-    },
-    {
-        id: 3,
-        name: "Instagram",
-        icon_name: "uil:instagram",
-        link: "https://instagram.com",
-    },
-];
+
 </script>
 <template>
-    <div class="container bg-[#F6F6F6] py-4 flex-center">
+    <div class="container py-4 flex-center">
         <nav class="">
             <ul class="flex-center gap-10 ">
-                <li v-for="item in data" :key="item.id" ">
+                <li v-for="item in header_top_data" :key="item.id" ">
                     <NuxtLink :to="item.link">{{ item.name }}</NuxtLink>
                 </li>
             </ul>
@@ -76,7 +31,7 @@ const socialData = [
                     <p>Info@mail.ru</p>
                 </NuxtLink>
             </div>
-            <p class="text-sm">RU</p>
+            <p class="text-sm flex-center">RU <Icon name="uil:angle-down" class="  text-lg" /> </p>
         </div>
     </div>
 </template>

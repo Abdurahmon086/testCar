@@ -26,3 +26,52 @@ export const aboutUs = [
         image: "/images/us/4.svg",
     },
 ];
+
+export const header_top_data = [
+    {
+        id: 1,
+        name: "Главная",
+        link: "/",
+    },
+    {
+        id: 2,
+        name: "Каталог",
+        link: "/catalog",
+    },
+    {
+        id: 3,
+        name: "О нас",
+        link: "/about",
+    },
+    {
+        id: 4,
+        name: "Новости",
+        link: "/news",
+    },
+    {
+        id: 5,
+        name: "Контакты",
+        link: "/contacts",
+    },
+];
+
+export const socialData = [
+    {
+        id: 1,
+        name: "Vkontakte",
+        icon_name: "akar-icons:vk-fill",
+        link: "https://vk.com",
+    },
+    {
+        id: 2,
+        name: "Whatsapp",
+        icon_name: "uil:whatsapp",
+        link: "https://whatsapp.com",
+    },
+    {
+        id: 3,
+        name: "Instagram",
+        icon_name: "uil:instagram",
+        link: "https://instagram.com",
+    },
+];

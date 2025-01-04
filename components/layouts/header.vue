@@ -1,21 +1,33 @@
 <script lang="ts" setup></script>
 <template>
-    <div class="container py-[12px] flex items-center">
+    <div class="container py-[12px] flex-center justify-between">
         <ShareLogo />
         <nav class="ml-[29px]">
-            <ul class="flex gap-5">
-                <li>Автомобили</li>
-                <li>Коммерческий транспорт</li>
-                <li>Мотоциклы</li>
+            <ul class="flex gap-5 text-[#010101] leading-[18px]">
+                <li class="cursor-pointer">
+                    Автомобили <Icon name="uil:angle-right-b" class="text-secondary -ml-1 text-lg align-middle" />
+                </li>
+                <li class="cursor-pointer">
+                    Коммерческий транспорт
+                    <Icon name="uil:angle-right-b" class="text-secondary -ml-1 text-lg align-middle" />
+                </li>
+                <li class="cursor-pointer">
+                    Мотоциклы <Icon name="uil:angle-right-b" class="text-secondary -ml-1 text-lg align-middle" />
+                </li>
             </ul>
         </nav>
-        <div>
-            <input type="text" />
+        <div class="for-form-avto text-[#989898] py-4 pr-4 w-[345px] relative">
+            <Icon name="uil:search" class="text-lg absolute top-5 left-4" />
+            <input
+                type="search"
+                class="bg-[#f4f4f4] w-full outline-none pl-[63px] text-[13px]"
+                placeholder="Поиск по названию"
+            />
         </div>
-        <Icon name="uil:bell" />
-        <div class="">
-            <p>Войти</p>
-            <button>Регистрацияz</button>
+        <Icon name="si:notifications-thick-line" class="text-lg cursor-pointer" />
+        <div class="flex-center gap-4" >
+            <p class="cursor-pointer text-[15px] leading-[22px]">Войти</p>
+            <ShareButton>Регистрация</ShareButton>
         </div>
     </div>
 </template>
