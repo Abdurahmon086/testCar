@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-const { color } = defineProps<{ color?: string }>();
+const { color, disabled } = defineProps<{ color?: string; disabled?: boolean }>();
 </script>
 <template>
-    <button class="main-btn" :class="color ? color : 'bg-secondary'">
+    <button :class="['main-btn', color ? color : 'bg-secondary']" :disabled="disabled">
         <slot />
     </button>
 </template>

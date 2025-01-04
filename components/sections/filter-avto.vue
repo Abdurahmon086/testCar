@@ -28,6 +28,8 @@ const formState = reactive({
     result: null as any,
 });
 
+const loading = ref(false);
+
 // Handle selection
 const options: Option[] = [
     { id: 1, name: "Все", value: "all" },
@@ -56,16 +58,23 @@ const clearForm = () => {
 
 // Submit form
 const submitForm = async () => {
-    const formData = {
-        ...formState,
-        maxYear: formState.year || 0,
-        minPrice: formState.price.split(" - ")[0] || 0,
-        maxPrice: formState.price.split(" - ")[1] || 0,
-        page: 1,
-        pageSize: 10,
-    };
-    const { data } = await useFetch("/api/all-filter", { method: "POST", body: formData });
-    formState.result = data;
+    try {
+        loading.value = true;
+        const formData = {
+            ...formState,
+            maxYear: formState.year || 0,
+            minPrice: formState.price.split(" - ")[0] || 0,
+            maxPrice: formState.price.split(" - ")[1] || 0,
+            page: 1,
+            pageSize: 10,
+        };
+        const { data } = await useFetch("/api/all-filter", { method: "POST", body: formData });
+        formState.result = data;
+    } catch (error) {
+        console.error(error);
+    } finally {
+        loading.value = false;
+    }
 };
 </script>
 
@@ -165,7 +174,7 @@ const submitForm = async () => {
                     Сбросить
                     <Icon name="uil:times" class="text-grayer" />
                 </button>
-                <ShareButton> Предложений</ShareButton>
+                <ShareButton :disabled="loading"> Предложений</ShareButton>
             </div>
         </form>
     </div>

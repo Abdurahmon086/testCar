@@ -14,7 +14,5 @@ export default defineEventHandler(async (event) => {
         body: JSON.stringify(body),
     });
 
-    console.log(res);
-
     return res;
 });
