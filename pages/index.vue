@@ -15,8 +15,66 @@ const { data } = await useAsyncData(
         deep: true,
     }
 );
+
+const containerRef = ref(null);
+
+const swiper = useSwiper(containerRef, {
+    effect: "creative",
+    loop: true,
+    autoplay: {
+        delay: 5000,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    creativeEffect: {
+        prev: {
+            shadow: true,
+            translate: [0, 0, -400],
+        },
+        next: {
+            shadow: true,
+            translate: [0, 0, -400],
+        },
+    },
+});
 </script>
 <template>
+    <section class="mt-8">
+        <div class="container">
+            <ClientOnly>
+                <swiper-container ref="containerRef">
+                    <swiper-slide
+                        v-for="item in data?.cars.slice(3, 6)"
+                        :key="item?.id"
+                        class="bg-[#F4F4F4] pt-14 px-10 h-[409px] rounded-xl bg-no-repeat bg-right"
+                        :class="`bg-[url('/images/hero.png')]`"
+                        :style="{
+                            backgroundSize: '770px',
+                            backgroundPosition: 'calc(100% - 10px) center',
+                        }"
+                    >
+                        <div class="">
+                            <h2>{{ item?.model }}</h2>
+                            <p>{{ item?.description }}</p>
+                            <ShareButton>Подробнее</ShareButton>
+                        </div>
+                    </swiper-slide>
+                </swiper-container>
+            </ClientOnly>
+        </div>
+    </section>
+
+    <!-- Подбор авто section -->
+    <section class="mt-24">
+        <SectionsFilterAvto />
+    </section>
+
     <section class="mt-24">
         <div class="container">
             <h3 class="main-title">АВТОМОБИЛЬНЫЙ КАТАЛОГ</h3>
@@ -113,4 +171,27 @@ const { data } = await useAsyncData(
     </section>
 </template>
 
-<style></style>
+<style>
+/* Navigation tugmalari */
+swiper-container .swiper-button-next,
+swiper-container .swiper-button-prev {
+    background-color: #000 !important;
+    color: #fff !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50%;
+}
+
+/* Pagination nuqtalari */
+swiper-container .swiper-pagination-bullet {
+    background-color: #ccc;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    border-radius: 50%;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #000;
+}
+</style>

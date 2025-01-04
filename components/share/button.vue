@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 const { color } = defineProps<{ color?: string }>();
-console.log(color);
 </script>
 <template>
     <button class="main-btn" :class="color ? color : 'bg-secondary'">

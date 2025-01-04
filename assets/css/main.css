@@ -36,3 +36,19 @@
     margin-bottom: 30px;
 }
 
+.for-form-avto {
+    background-color: #f4f4f4;
+    border-radius: 5px;
+}
+
+.label14 {
+    @apply text-[#050B20] text-sm leading-[18px];
+}
+
+.placeholder15 {
+    @apply outline-none text15 placeholder:text-[#5A5A5A];
+}
+
+.active {
+    @apply transition-colors duration-500 bg-grayer text-white rounded-xl;
+}
