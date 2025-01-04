@@ -7,12 +7,12 @@
                 <LayoutsHeader />
             </div>
         </header>
-        <main class="flex-grow">
+        <!-- <main class="flex-grow">
             <slot />
-        </main>
-        <footer>
+        </main> -->
+        <!-- <footer>
             <LayoutsFooter />
-        </footer>
+        </footer> -->
     </div>
 </template>
 

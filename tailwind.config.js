@@ -16,11 +16,10 @@ export default {
         sm: '100%',
         md: '100%',
         lg: '1024px',
-        xl: '1296px',
+        xl: '1336px',
       },
       padding: {
-        DEFAULT: '0',
-        sm: '20px',
+        DEFAULT: '20px',
       },
       center: true,
     },

@@ -4,7 +4,7 @@ import { header_top_data, socialData } from '~/constants';
 
 </script>
 <template>
-    <div class="container py-4 flex-center">
+    <div class="container py-4 hidden lg:flex items-center">
         <nav class="">
             <ul class="flex-center gap-10 ">
                 <li v-for="item in header_top_data" :key="item.id" ">
