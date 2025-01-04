@@ -15,7 +15,7 @@ export default {
       screens: {
         sm: '100%',
         md: '100%',
-        lg: '1024px',
+        lg: '100%',
         xl: '1336px',
       },
       padding: {
