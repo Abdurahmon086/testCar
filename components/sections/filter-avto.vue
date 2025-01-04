@@ -82,29 +82,31 @@ const submitForm = async () => {
     <div class="container">
         <h3 class="main-title">Подбор авто</h3>
         <form class="rounded-xl bg-white p-5 shadow-lg w-full" @submit.prevent="submitForm">
-            <div class="flex-center gap-7">
-                <div class="flex-center gap for-form-avto text15 text-[#010101]">
+            <div class="flex-center flex-wrap gap-3 sm:gap-7">
+                <div class="flex-center for-form-avto text15 text-[#010101] w-full sm:w-auto">
                     <div
                         v-for="item in options"
                         :key="item?.id"
-                        class="py-5 px-8 cursor-pointer"
+                        class="py-4 sm:py-5 px-6 sm:px-8 cursor-pointer text-nowrap sm:w-auto w-full flex items-center justify-center"
                         :class="{ active: formState.selected === item?.value }"
                         @click="selectOption(item?.value)"
                     >
                         {{ item?.name }}
                     </div>
                 </div>
-                <div class="flex-center flex-row-reverse gap-2">
-                    <label for="cash" class="label14">В наличии</label>
-                    <input type="checkbox" name="cash" id="cash" v-model="formState.cash" />
-                </div>
-                <div class="flex-center flex-row-reverse gap-2">
-                    <label for="order" class="label14">Под заказ</label>
-                    <input type="checkbox" name="order" id="order" v-model="formState.order" />
+                <div class="flex items-center gap-7">
+                    <div class="flex-center flex-row-reverse gap-2">
+                        <label for="cash" class="label14">В наличии</label>
+                        <input type="checkbox" name="cash" id="cash" v-model="formState.cash" />
+                    </div>
+                    <div class="flex-center flex-row-reverse gap-2">
+                        <label for="order" class="label14">Под заказ</label>
+                        <input type="checkbox" name="order" id="order" v-model="formState.order" />
+                    </div>
                 </div>
             </div>
 
-            <div class="grid grid-cols-5 space-x-6 mt-7">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6 mt-5 sm:mt-7">
                 <div class="flex flex-col gap-1 custom-select relative">
                     <label for="mark" class="label14 mb-1">Выберите марку</label>
                     <select

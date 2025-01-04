@@ -7,9 +7,9 @@
                 <LayoutsHeader />
             </div>
         </header>
-        <!-- <main class="flex-grow">
+        <main class="flex-grow">
             <slot />
-        </main> -->
+        </main>
         <footer>
             <LayoutsFooter />
         </footer>

@@ -3,7 +3,7 @@
 }
 
 .text15 {
-    font-size: 15px;
+    @apply text-[13px] md:text-[15px];
     line-height: 17.25px;
     font-weight: 400;
 }
@@ -42,7 +42,7 @@
 }
 
 .label14 {
-    @apply text-[#050B20] text-sm leading-[18px];
+    @apply text-[#050B20] text-xs sm:text-sm leading-[18px];
 }
 
 .placeholder15 {
