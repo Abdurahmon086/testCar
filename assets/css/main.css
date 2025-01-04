@@ -9,7 +9,7 @@
 }
 
 .text19 {
-    font-size: 19px;
+    @apply text-[15px] md:text-[19px];
     line-height: 20px;
     font-weight: 500;
 }
@@ -29,11 +29,10 @@
 }
 
 .main-title {
-    font-size: 30px;
+    @apply text-[23px] md:text-[30px] mb-[20px] md:mb-[30px];
     font-weight: 500;
     line-height: 36.36px;
     color: #010101;
-    margin-bottom: 30px;
 }
 
 .for-form-avto {
@@ -77,4 +76,10 @@
 .kompny-us {
     background: url("images/n1.png") no-repeat, url("images/shina.png") no-repeat;
     background-position: right 4% bottom, right 31% bottom;
+}
+
+@media only screen and (max-width: 1024px) {
+    .kompny-us {
+        background: none;
+    }
 }
