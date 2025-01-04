@@ -1,9 +1,5 @@
 <template>
-    <div class="flex items-center justify-center min-h-screen">
-        <div class="animate-spin h-8 w-8 border-4 border-blue-500 border-t-transparent rounded-full"></div>
+    <div class="fixed top-0 left-0 z-50 w-full flex items-center justify-center min-h-screen bg-gray-100">
+        <Icon name="eos-icons:bubble-loading" class="text-secondary text-6xl" />
     </div>
 </template>
-
-<script lang="ts" setup></script>
-
-<style></style>
