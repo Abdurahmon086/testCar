@@ -2,7 +2,7 @@
 import type { Car } from "~/types";
 import "swiper/css";
 
-const { data } = defineProps<{ data: Car[] }>();
+const { data } = defineProps<{ data?: Car[] }>();
 
 const containerRef = ref(null);
 const loading = ref(true);
