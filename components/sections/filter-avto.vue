@@ -13,83 +13,62 @@ const { data } = await useAsyncData(
         const [brands] = await Promise.all([$fetch<CarBrand[]>("/api/brands")]);
         return { brands };
     },
-    {
-        deep: true,
-    }
+    { deep: true }
 );
 
-const year = ref("");
-const price = ref("");
-const selected = ref("all");
-const order = ref(false);
-const cash = ref(false);
-const mark = ref(data.value?.brands[0].mark_name ?? "");
-const model = ref("Hyundai");
-const country = ref("USA");
-const result = ref<any>(null);
+const formState = reactive({
+    year: "",
+    price: "",
+    selected: "all",
+    order: false,
+    cash: false,
+    mark: data.value?.brands[0].mark_name ?? "",
+    model: "Hyundai",
+    country: "USA",
+    result: null as any,
+});
 
 // Handle selection
 const options: Option[] = [
-    {
-        id: 1,
-        name: "Все",
-        value: "all",
-    },
-    {
-        id: 2,
-        name: "Новые",
-        value: "new",
-    },
-    {
-        id: 3,
-        name: "С пробегом",
-        value: "used",
-    },
+    { id: 1, name: "Все", value: "all" },
+    { id: 2, name: "Новые", value: "new" },
+    { id: 3, name: "С пробегом", value: "used" },
 ];
 
-const selectOption = (option: string) => {
-    selected.value = option;
-};
+// Select handler
+const selectOption = (option: string) => (formState.selected = option);
 
-// Filter only numbers
+// Filter input
 const sanitizeInput = (value: string) => value.replace(/[^0-9\-]/g, "");
 
 // Clear form
 const clearForm = () => {
-    year.value = "";
-    price.value = "";
-    selected.value = "new";
-    mark.value = "";
-    model.value = "";
-    country.value = "";
-    result.value = null;
-    cash.value = false;
-    order.value = false;
+    Object.assign(formState, {
+        year: "",
+        price: "",
+        selected: "all",
+        mark: data.value?.brands[0].mark_name ?? "",
+        model: "Hyundai",
+        country: "USA",
+        result: null,
+    });
 };
 
 // Submit form
 const submitForm = async () => {
     const formData = {
-        model: model.value,
-        country: country.value,
-        statement: selected.value,
-        maxYear: year.value || 0,
-        minPrice: price.value.split(" - ")[0] || 0,
-        maxPrice: price.value.split(" - ")[1] || 0,
+        ...formState,
+        maxYear: formState.year || 0,
+        minPrice: formState.price.split(" - ")[0] || 0,
+        maxPrice: formState.price.split(" - ")[1] || 0,
         page: 1,
         pageSize: 10,
-        // order: order.value,
-        // cash: cash.value,
-        // mark: mark.value,
     };
-    const { data } = await useFetch("/api/all-filter", {
-        method: "POST",
-        body: formData,
-    });
-    result.value = data;
-    console.log(result.value);
+    const { data } = await useFetch("/api/all-filter", { method: "POST", body: formData });
+    formState.result = data;
 };
 </script>
+
 <template>
     <div class="container">
         <h3 class="main-title">Подбор авто</h3>
@@ -100,7 +79,7 @@ const submitForm = async () => {
                         v-for="item in options"
                         :key="item?.id"
                         class="py-5 px-8 cursor-pointer"
-                        :class="{ active: selected === item?.value }"
+                        :class="{ active: formState.selected === item?.value }"
                         @click="selectOption(item?.value)"
                     >
                         {{ item?.name }}
@@ -108,30 +87,35 @@ const submitForm = async () => {
                 </div>
                 <div class="flex-center flex-row-reverse gap-2">
                     <label for="cash" class="label14">В наличии</label>
-                    <input type="checkbox" name="cash" id="cash" v-model="cash" />
+                    <input type="checkbox" name="cash" id="cash" v-model="formState.cash" />
                 </div>
                 <div class="flex-center flex-row-reverse gap-2">
                     <label for="order" class="label14">Под заказ</label>
-                    <input type="checkbox" name="order" id="order" v-model="order" />
+                    <input type="checkbox" name="order" id="order" v-model="formState.order" />
                 </div>
             </div>
 
-            <div class="grid grid-cols-5 space-x-6 mt-7 ">
+            <div class="grid grid-cols-5 space-x-6 mt-7">
                 <div class="flex flex-col gap-1 custom-select relative">
                     <label for="mark" class="label14 mb-1">Выберите марку</label>
-                    <select name="mark" id="mark" class="for-form-avto py-6 px-5 text15 text-[#5A5A5A]" v-model="mark">
+                    <select
+                        name="mark"
+                        id="mark"
+                        class="for-form-avto py-6 px-5 text15 text-[#5A5A5A]"
+                        v-model="formState.mark"
+                    >
                         <option v-for="item in data?.brands ?? []" :key="item?.id" :value="item?.mark_name">
                             {{ item?.mark_name }}
                         </option>
                     </select>
                 </div>
                 <div class="flex flex-col gap-1 custom-select relative">
-                    <label for="model" class="label14 mb-1">ВЫберите модель</label>
+                    <label for="model" class="label14 mb-1">Выберите модель</label>
                     <select
                         name="model"
                         id="model"
                         class="for-form-avto py-6 px-5 text15 text-[#5A5A5A]"
-                        v-model="model"
+                        v-model="formState.model"
                     >
                         <option value="Hyundai">Hyundai</option>
                         <option value="Kia">Kia</option>
@@ -145,7 +129,7 @@ const submitForm = async () => {
                         name="country"
                         id="country"
                         class="for-form-avto py-6 px-5 text15 text-[#5A5A5A]"
-                        v-model="country"
+                        v-model="formState.country"
                     >
                         <option value="USA">USA</option>
                         <option value="Russian">Russian</option>
@@ -160,8 +144,8 @@ const submitForm = async () => {
                         class="for-form-avto py-6 px-5 placeholder15"
                         type="text"
                         placeholder="0 - 2024"
-                        v-model="year"
-                        @input="year = sanitizeInput(year)"
+                        v-model="formState.year"
+                        @input="formState.year = sanitizeInput(formState.year)"
                     />
                 </div>
                 <div class="flex flex-col gap-1">
@@ -171,8 +155,8 @@ const submitForm = async () => {
                         class="for-form-avto py-6 px-5 placeholder15"
                         type="text"
                         placeholder="3 000 000 - 4 500 000"
-                        v-model="price"
-                        @input="price = sanitizeInput(price)"
+                        v-model="formState.price"
+                        @input="formState.price = sanitizeInput(formState.price)"
                     />
                 </div>
             </div>
@@ -181,13 +165,8 @@ const submitForm = async () => {
                     Сбросить
                     <Icon name="uil:times" class="text-grayer" />
                 </button>
-                <ShareButton>
-                    <p>{{ result?.length }}</p>
-                    Предложений</ShareButton
-                >
+                <ShareButton> Предложений</ShareButton>
             </div>
         </form>
     </div>
 </template>
-
-<style></style>

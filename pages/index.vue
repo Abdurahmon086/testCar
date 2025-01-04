@@ -105,11 +105,13 @@ const swiper = useSwiper(containerRef, {
     <!-- О нашей компании section -->
     <section class="mt-28">
         <div class="container">
-            <div class="bg-[#F6F6F6] rounded-lg">
-                <div class=""></div>
-                <div class="">
-                    <h3>О нашей компании</h3>
-                    <p>
+            <div class="bg-[#F6F6F6] rounded-lg flex justify-between h-[390px]">
+                <div class="bg-[url('/images/person-bg.png')] bg-no-repeat w-1/3 h-min ml-10" style="background-position: 10px -8px;">
+                    <img src="/images/person.png" alt="person image" class="h-[442px] -translate-y-[52px]" />
+                </div>
+                <div class="kompny-us pt-[53px] pr-4">
+                    <h3 class="text-[30px] leading-[36px] font-medium">О нашей компании</h3>
+                    <p class="mt-2 mb-5 max-w-[623px] text-[#989898]">
                         Мы имеем огромный опыт работы с автомобильным рынком Кореи и тщательно отбираем автомобили для
                         наших клиентов, учитывая их потребности и бюджет. Мы работаем только с надежными поставщиками и
                         перевозчиками, чтобы обеспечить безопасность и надежность доставки.

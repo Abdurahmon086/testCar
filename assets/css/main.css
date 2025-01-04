@@ -73,3 +73,8 @@
     border-top: var(--size) solid black;
     top: 62%;
 }
+
+.kompny-us {
+    background: url("images/n1.png") no-repeat, url("images/shina.png") no-repeat;
+    background-position: right 4% bottom, right 31% bottom;
+}
