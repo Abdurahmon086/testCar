@@ -155,7 +155,7 @@ const { data, error, status } = await useAsyncData(
     display: none;
 }
 
-ul > li {
+.overflow-x-auto ul > li {
     scroll-snap-align: start;
 }
 </style>

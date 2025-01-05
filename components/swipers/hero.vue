@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import type { Car } from "~/types";
-import "swiper/css";
 
 const { data } = defineProps<{ data?: Car[] }>();
 
@@ -53,7 +52,6 @@ onMounted(() => {
             </swiper-container>
         </ClientOnly>
 
-        <!-- Go back one slide -->
         <div class="absolute bottom-2 flex-center text-[#989898] space-x-4 right-5 z-50">
             <button @click="swiper.prev()" class="w-[48px] h-[48px] rounded-full bg-white flex-center justify-center">
                 <Icon name="uil:arrow-left" class="text-3xl" />
