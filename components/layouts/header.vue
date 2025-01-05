@@ -25,11 +25,11 @@
                     placeholder="Поиск по названию"
                 />
             </div>
-            <img src="/images/menu.svg" alt="menu icon" class="text-lg text-black cursor-pointer block xl:hidden" />
+            <ShareMenu />
         </div>
         <Icon name="si:notifications-thick-line" class="text-lg cursor-pointer hidden xl:block" />
         <div class="gap-4 hidden xl:flex items-center">
-            <p class="cursor-pointer text-[15px] lead   ing-[22px]">Войти</p>
+            <p class="cursor-pointer text-[15px] lead ing-[22px]">Войти</p>
             <ShareButton>Регистрация</ShareButton>
         </div>
     </div>
